@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block pagina %}
+Pokedex
+{% endblock %}
+
+{% block titulo %}
+Pokedex
+{% endblock %}
+
+{% block menu %}
+<div class="container my-5 justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="card shadow-lg rounded-4 border-0">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-3 ">
+
+                    <div class="container mt-2">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show"
+                            role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <h1 class="text-danger fw-bold">Pokedex</h1>
+                    <p class="text-danger">Busca tu pokemon</p>
+
+                    <form method="POST" action="{{ url_for('pokemon') }}">
+
+                    <div class="mb-4">
+                        <nav class="navbar bg-body-tertiary">
+                            <div class="container-fluid">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+                                value="{{ request.form.get('pokemon', '')}}"
+                                id="pokemon" 
+                                name="pokemon"/>
+                            </form>
+                            </div>
+                        </nav>
+
+                        <button type="submit" class="btn bg-success text-white">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% endblock menu %}
