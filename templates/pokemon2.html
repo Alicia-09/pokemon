@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block pagina %}
+Pokedex
+{% endblock %}
+
+{% block titulo %}
+Pokedex
+{% endblock %}
+
+{% block menu %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+        <img src="{{pokemon.sprite}}" class="img-fluid rounded-start" alt="imagen pokemon">
+    </div>
+    <div class="col-md-8">
+        <div class="card-body">
+        <h5 class="card-title">{{pokemon.name}}</h5>
+          <p class="card-text">{{pokemon.height}}</p>
+          <p class="card-text">{{pokemon.weight}}</p>
+          <p class="card-text">{%for t in pokemon.types%}{{t}}{{%endfor%}}</p>
+          <p class="card-text">{%for a in pokemon.abilities%}{{a}}{{%endfor%}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
