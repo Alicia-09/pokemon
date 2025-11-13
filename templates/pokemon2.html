@@ -9,19 +9,37 @@ Pokedex
 {% endblock %}
 
 {% block menu %}
-<div class="card mb-3" style="max-width: 540px;">
+<div class="container my-5">
+  <div class="card mx-auto shadow-lg border-0 pokedex-card">
     <div class="row g-0">
-        <div class="col-md-4">
-        <img src="{{pokemon.sprite}}" class="img-fluid rounded-start" alt="imagen pokemon">
-    </div>
-    <div class="col-md-8">
+      <div class="col-md-5 d-flex align-items-center justify-content-center bg-light">
+        <img src="{{ pokemon.image }}" alt="imagen pokemon" class="pokemon-img img-fluid rounded">
+      </div>
+      <div class="col-md-7">
         <div class="card-body">
-        <h5 class="card-title">{{pokemon.name}}</h5>
-          <p class="card-text">{{pokemon.height}}</p>
-          <p class="card-text">{{pokemon.weight}}</p>
-          <p class="card-text">{%for t in pokemon.types%}{{t}}{{%endfor%}}</p>
-          <p class="card-text">{%for a in pokemon.abilities%}{{a}}{{%endfor%}}</p>
+          <h3 class="card-title text-danger fw-bold mb-3 text-uppercase">{{ pokemon.name }}</h3>
+
+          <p class="card-text"><strong>ID:</strong> {{ pokemon.id }}</p>
+          <p class="card-text"><strong>Peso:</strong> {{ pokemon.height }} m</p>
+
+          <p class="card-text">
+            <strong>Tipo:</strong>
+            {% for t in pokemon.types %}
+              {{ t }}
+            {% endfor %}
+          </p>
+
+          <p class="card-text">
+            <strong>Habilidades:</strong>
+            {% for a in pokemon.abilities %}
+              {{ a }}
+            {% endfor %}
+          </p>
+
+          <a href="{{ url_for('index') }}" class="btn btn-outline-danger mt-3">Volver</a>
         </div>
       </div>
     </div>
   </div>
+</div>
+{% endblock %}

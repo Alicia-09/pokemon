@@ -32,21 +32,20 @@ Pokedex
                     <h1 class="text-danger fw-bold">Pokedex</h1>
                     <p class="text-danger">Busca tu pokemon</p>
 
-                    <form method="POST" action="{{ url_for('pokemon') }}">
+                    <form method="POST" action="{{ url_for('search_pokemon') }}">
 
-                    <div class="mb-4">
-                        <nav class="navbar bg-body-tertiary">
-                            <div class="container-fluid">
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
-                                value="{{ request.form.get('pokemon', '')}}"
-                                id="pokemon" 
-                                name="pokemon"/>
-                            </form>
-                            </div>
-                        </nav>
+                        <div class="mb-4">
+                            <nav class="navbar bg-body-tertiary">
+                                <div class="container-fluid">
+                                    <form class="d-flex" role="search">
+                                        <input class="form-control me-2" type="search" placeholder="Search"
+                                            aria-label="Search" value="{{ request.form.get('pokemon_name', '')}}"
+                                            id="pokemon_name" name="pokemon_name" />
+                                    </form>
+                                </div>
+                            </nav>
 
-                        <button type="submit" class="btn bg-success text-white">Buscar</button>
+                            <button type="submit" class="btn bg-success text-white">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -54,4 +53,4 @@ Pokedex
     </div>
 </div>
 
-    {% endblock menu %}
+{% endblock menu %}

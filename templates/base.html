@@ -18,22 +18,6 @@
                 <a class="navbar-brand fw-bold ">
                     {% block titulo %}{% endblock %}</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="nav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000">Inicio</a></li>
-                    </ul>
-
-                    {% if session.get("loggeado") %}
-                    <div>
-                        <p>Bienvenido{{session.get("usuario")}}</p>
-                    </div>
-                    {% endif %}
-                </div>
             </div>
         </nav>
     </header>
